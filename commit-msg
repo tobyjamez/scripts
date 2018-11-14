@@ -1,0 +1,21 @@
+#!/bin/bash
+# Git hook to check that commit messages begin with
+# one of the accepted titles:
+# [Add] [Mod] [Ref] [Fix] [Rem] [Rea]
+# Exits with non-zero status if the commit message
+# does not comply, aborting the commit.
+
+
+title="$(head -c 5 ${1})"
+
+titles=([Add] [Mod] [Ref] [Fix] [Rem] [Rea])
+
+for element in ${titles[*]}
+    do
+        if [ "${element}" == "${title}" ];
+        then
+            exit 0;
+        fi
+    done
+
+exit 1
