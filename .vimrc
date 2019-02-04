@@ -22,6 +22,10 @@ set expandtab
 autocmd BufEnter *.py highlight ColorColumn ctermbg=yellow
 autocmd BufEnter *.py set colorcolumn=80,73
 
+"for c++ source files, highlight column 121
+"no official style guide however 120 is widely accepted
+autocmd BufEnter *.cpp highlight ColorColumn ctermbg=yellow
+autocmd BufEnter *.cpp set colorcolumn=121
 "make navigating python sources easier, map pageup/down to go to
 "previous/next function definition.
 "map alt - pageup/dpwn to go to previous/next class definition
