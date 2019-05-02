@@ -9,6 +9,6 @@ for filename in ./include/*; do
 
 for filename in ./src/*; do
     if [ ! -f "./include/${filename:6:-2}hh" ]; then
-        touch "./include/${filename:6:-2}hh"
+        rm $filename;
     fi
     done;
