@@ -1,8 +1,10 @@
 "basic vim customisation
+let mapleader=" "
 syntax on
 set autoindent
 set number
 set nostartofline
+filetype plugin on
 
 "improve search
 set hlsearch
@@ -19,7 +21,7 @@ set expandtab
 "for python source files, highlight columns 73 and 80
 "python comments shouldn't overrun 72 columns and
 "logical lines shouldn't overrun 79
-autocmd BufEnter *.py highlight ColorColumn ctermbg=yellow
+autocmd BufEnter *.py highlight ColorColumn ctermbg=blue
 autocmd BufEnter *.py set colorcolumn=80,73
 
 "for c++ source files, highlight column 121
@@ -29,20 +31,20 @@ autocmd BufEnter *.cpp set colorcolumn=121
 "make navigating python sources easier, map pageup/down to go to
 "previous/next function definition.
 "map alt - pageup/dpwn to go to previous/next class definition
-autocmd BufEnter *.py nnoremap <silent><PageDown> /\<def\><CR> :noh<CR>
-autocmd BufEnter *.py nnoremap <silent><PageUp> 0?\<def\><CR> :noh<CR>
-autocmd BufEnter *.py nnoremap <silent><A-PageDown> /\<class\><CR> :noh<CR>
-autocmd BufEnter *.py nnoremap <silent><A-PageUp> 0?\<class\><CR> :noh<CR>
+autocmd BufEnter *.py nnoremap <silent><PageDown> /\<def\><CR>zz :noh<CR>
+autocmd BufEnter *.py nnoremap <silent><PageUp> 0?\<def\><CR>zz :noh<CR>
+autocmd BufEnter *.py nnoremap <silent><A-PageDown> /\<class\><CR>zz :noh<CR>
+autocmd BufEnter *.py nnoremap <silent><A-PageUp> 0?\<class\><CR>zz :noh<CR>
 
-autocmd BufEnter *.py inoremap <silent><PageDown> <esc>/\<def\><CR> :noh<CR>i
-autocmd BufEnter *.py inoremap <silent><PageUp> <esc>0?\<def\><CR> :noh<CR>i
-autocmd BufEnter *.py inoremap <silent><A-PageDown> <esc>/\<class\><CR> :noh<CR>i
-autocmd BufEnter *.py inoremap <silent><A-PageUp> <esc>0?\<class\><CR> :noh<CR>i
+autocmd BufEnter *.py inoremap <silent><PageDown> <esc>/\<def\><CR>zz :noh<CR>i
+autocmd BufEnter *.py inoremap <silent><PageUp> <esc>0?\<def\><CR>zz :noh<CR>i
+autocmd BufEnter *.py inoremap <silent><A-PageDown> <esc>/\<class\><CR>zz :noh<CR>i
+autocmd BufEnter *.py inoremap <silent><A-PageUp> <esc>0?\<class\><CR>zz :noh<CR>i
 
-autocmd BufEnter *.py vnoremap <silent><PageDown> <esc>/\<def\><CR> :noh<CR>v
-autocmd BufEnter *.py vnoremap <silent><PageUp> <esc>0?\<def\><CR> :noh<CR>v
-autocmd BufEnter *.py vnoremap <silent><A-PageDown> <esc>/\<class\><CR> :noh<CR>v
-autocmd BufEnter *.py vnoremap <silent><A-PageUp> <esc>0?\<class\><CR> :noh<CR>v
+autocmd BufEnter *.py vnoremap <silent><PageDown> <esc>/\<def\><CR>zz :noh<CR>v
+autocmd BufEnter *.py vnoremap <silent><PageUp> <esc>0?\<def\><CR>zz :noh<CR>v
+autocmd BufEnter *.py vnoremap <silent><A-PageDown> <esc>/\<class\><CR>zz :noh<CR>v
+autocmd BufEnter *.py vnoremap <silent><A-PageUp> <esc>0?\<class\><CR>zz :noh<CR>v
 
 
 "improved window navigation for vimsplits
@@ -66,3 +68,12 @@ set splitright
 
 "insert spaces in normal mode
 nnoremap <silent> ss i<space><esc>
+
+"package usage
+nnoremap <leader>n <esc>:NERDTree<cr>
+
+"packages
+execute pathogen#infect()
+filetype plugin indent on
+
+let g:airline_theme='simple'
