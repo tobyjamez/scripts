@@ -68,7 +68,8 @@ set splitright
 
 "insert spaces in normal mode
 nnoremap <silent> ss i<space><esc>
-
+"insert ; in normal mode
+nnoremap <silent> ;; $a;<esc>0
 "package usage
 nnoremap <leader>n <esc>:NERDTree<cr>
 
@@ -77,3 +78,7 @@ execute pathogen#infect()
 filetype plugin indent on
 
 let g:airline_theme='simple'
+"semantic highlighting
+nnoremap <Leader>s :Seifort64manticHighlightToggle<cr>
+"vimswitch
+map <F5> :call CurtineIncSw()<CR>
