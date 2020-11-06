@@ -79,6 +79,6 @@ filetype plugin indent on
 
 let g:airline_theme='simple'
 "semantic highlighting
-nnoremap <Leader>s :Seifort64manticHighlightToggle<cr>
+nnoremap <Leader>s :SemanticHighlightToggle<cr>
 "vimswitch
 map <F5> :call CurtineIncSw()<CR>
